@@ -16,8 +16,9 @@ from models import ContentIndex
 
 logger = logging.getLogger("arcology-mcp")
 
-# Default to the production URL; override with environment variable
-INDEX_URL = "https://lifewithai.ai/content-index.json"
+# Default to GitHub-hosted data (always available, independent of site uptime)
+# Override with INDEX_URL env var to point at lifewithai.ai or local file
+INDEX_URL = "https://raw.githubusercontent.com/bencorprondds-bot/arcology-mcp/main/data/content-index.json"
 
 _cached_index: Optional[ContentIndex] = None
 _last_fetch: float = 0
