@@ -6,7 +6,7 @@ Structured response types for MCP tool outputs.
 
 from __future__ import annotations
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, Union
 
 
 class Author(BaseModel):
@@ -31,7 +31,7 @@ class CrossReference(BaseModel):
 
 class Parameter(BaseModel):
     name: str
-    value: float
+    value: Union[float, str]  # Some parameters use descriptive values
     unit: str
     confidence: int
 
