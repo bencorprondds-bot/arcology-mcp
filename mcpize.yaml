@@ -1,0 +1,21 @@
+version: 1
+name: arcology-knowledge-node
+description: >
+  Read-only access to a curated engineering knowledge base for Arcology One —
+  a speculative mile-high city housing 10 million people. 292 structured entries
+  across 9 engineering domains (structural, energy, environmental, mechanical,
+  AI/compute, institutional design, construction logistics, urban design).
+  Search, browse, cross-reference parameters, and explore open questions.
+runtime: python
+entry: server.py
+
+build:
+  install: pip install -r requirements.txt
+  command: python server.py
+
+secrets:
+  - name: INDEX_URL
+    required: false
+    description: >
+      Override the default content index URL.
+      Defaults to the GitHub-hosted content-index.json.
